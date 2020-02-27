@@ -64,6 +64,6 @@ class Api::V1::PostsController < ApplicationController
     def post_params
       # puts
       byebug
-      params.require(:post).permit(:title, :description, :latitude, :longitude, :user_id, :category_id, :image)
+      params.require(:post).permit(:title, :description, :latitude, :longitude, :user_id, :category_id)
     end
 end
