@@ -46,3 +46,9 @@ gem "jwt", "~> 2.2"
 gem "active_model_serializers", "~> 0.10.10"
 
 gem "faker", "~> 2.10"
+
+gem 'paperclip'
+
+gem 'aws-sdk-s3', '~> 1'
+
+gem 'aws-sdk-ec2', '~> 1'
