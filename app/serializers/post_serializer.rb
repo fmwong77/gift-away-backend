@@ -3,8 +3,8 @@ class PostSerializer < ActiveModel::Serializer
   has_one :user
   has_one :category
 
-  # include Rails.application.routes.url_helpers
-  # attributes :id, :title, :description, :user_id, :category_id, :image, :latitude, :longitude
+  include Rails.application.routes.url_helpers
+  attributes :id, :title, :description, :user_id, :category_id, :latitude, :longitude
 
   # def image
   #   return unless object.image.attached?
