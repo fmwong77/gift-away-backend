@@ -63,7 +63,7 @@ class Api::V1::PostsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def post_params
       # puts
-      byebug
+      # byebug
       params.require(:post).permit(:title, :description, :latitude, :longitude, :user_id, :category_id)
     end
 end
