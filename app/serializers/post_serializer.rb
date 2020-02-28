@@ -7,11 +7,13 @@ class PostSerializer < ActiveModel::Serializer
   attributes :id, :title, :description, :user_id, :category_id, :latitude, :longitude, :image
 
   def image
+    # byebug
     return unless object.image.attached?
     object.image.blob.attributes
           .slice('filename', 'byte_size')
           .merge(url: image_url)
           .tap { |attrs| attrs['name'] = attrs.delete('filename') }
+          # byebug
   end
 
   def image_url
