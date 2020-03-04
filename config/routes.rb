@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post "/graphql", to: "graphql#execute"
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create]
@@ -18,10 +19,9 @@ Rails.application.routes.draw do
 
   root :to => 'home#index'
 
-  # resources :replies
-  # resources :comments
-  # resources :posts
-  # resources :categories
-  # resources :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :sessions, only: [:create]
+
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+  end
 end

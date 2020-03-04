@@ -1,10 +1,18 @@
 class Api::V1::PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
+  skip_before_action :authorized, only: [:index]
 
   # GET /posts
   def index
-    @posts = Post.all
-    params[:type] == "view" ? @posts = Post.all.where("user_id<>#{params[:user_id]}") : @posts = Post.all.where("user_id=#{params[:user_id]}")
+    # @posts = Post.all
+    # if params[:category_id == 0]
+    #   byebug
+      params[:type] == "view" ? @posts = Post.all.where("user_id<>#{params[:user_id]}") : @posts = Post.all.where("user_id=#{params[:user_id]}")
+    # else
+    #   byebug
+    #   params[:type] == "view" ? @posts = Post.all.where("user_id<>#{params[:user_id]} and category_id=#{params[:category_id]}") : @posts = Post.all.where("user_id=#{params[:user_id]} and category_id=#{params[:category_id]}")
+    # end
+    # byebug
     render json: @posts
   end
 
@@ -62,8 +70,7 @@ class Api::V1::PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      # puts
-      byebug
+      # byebug
       params.require(:post).permit(:title, :description, :latitude, :longitude, :user_id, :category_id, :image)
     end
 end
