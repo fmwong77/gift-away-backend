@@ -36,6 +36,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'graphiql-rails'
+  gem "faker", "~> 2.10"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -47,8 +49,5 @@ gem "active_model_serializers", "~> 0.10.10"
 
 gem "faker", "~> 2.10"
 
-gem 'paperclip'
+gem 'graphql', "~> 1.6.4"
 
-gem 'aws-sdk-s3', '~> 1'
-
-gem 'aws-sdk-ec2', '~> 1'
