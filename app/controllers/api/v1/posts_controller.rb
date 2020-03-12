@@ -34,13 +34,13 @@ class Api::V1::PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     # @post = Post.find(params[:id])
-    if (@post && params[:info] != "post")
-      # byebug
-      @post.image.purge
-      @post.update(image: params[:image])
-      image_url = rails_blob_path(@post.image)
-      render json: {post: @post, image_url: image_url}
-    else
+    # if (@post && params[:info] != "post")
+    #   # byebug
+    #   @post.image.purge
+    #   @post.update(image: params[:image])
+    #   image_url = rails_blob_path(@post.image)
+    #   render json: {post: @post, image_url: image_url}
+    # else
       # byebug
       @post.update(post_params)
       if @post.update(post_params)
@@ -48,7 +48,7 @@ class Api::V1::PostsController < ApplicationController
       else
         render json: {message: "Error"} #@post.errors, status: :unprocessable_entity
       end
-    end
+    # end
     
     # if @post.update(params)
       # render json: {post: @post, image_url: image_url}
@@ -71,6 +71,6 @@ class Api::V1::PostsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def post_params
       # byebug
-      params.require(:post).permit(:title, :description, :latitude, :longitude, :user_id, :category_id)
+      params.require(:post).permit(:title, :description, :latitude, :longitude, :user_id, :category_id, :image_url)
     end
 end
