@@ -4,18 +4,18 @@ class PostSerializer < ActiveModel::Serializer
   has_one :category
   has_many :comments
 
-  include Rails.application.routes.url_helpers
-  attributes :id, :title, :description, :user_id, :category_id, :image, :latitude, :longitude
+  # include Rails.application.routes.url_helpers
+  attributes :id, :title, :description, :user_id, :category_id, :image_url, :latitude, :longitude
 
-  def image
-    return unless object.image.attached?
-    object.image.blob.attributes
-          .slice('filename', 'byte_size')
-          .merge(url: image_url)
-          .tap { |attrs| attrs['name'] = attrs.delete('filename') }
-  end
+  # def image
+  #   return unless object.image.attached?
+  #   object.image.blob.attributes
+  #         .slice('filename', 'byte_size')
+  #         .merge(url: image_url)
+  #         .tap { |attrs| attrs['name'] = attrs.delete('filename') }
+  # end
 
-  def image_url
-    url_for(object.image)
-  end
+  # def image_url
+  #   url_for(object.image)
+  # end
 end

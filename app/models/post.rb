@@ -3,5 +3,5 @@ class Post < ApplicationRecord
   belongs_to :category
   has_many :comments
 
-  has_one_attached :image
+  # has_one_attached :image
 end

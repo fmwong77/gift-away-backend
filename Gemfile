@@ -47,4 +47,7 @@ gem "jwt", "~> 2.2"
 
 gem "active_model_serializers", "~> 0.10.10"
 
+gem "faker", "~> 2.10"
+
 gem 'graphql', "~> 1.6.4"
+
