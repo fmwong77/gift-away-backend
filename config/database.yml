@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: gift_away_api_test
+  database: gift_away_api_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
